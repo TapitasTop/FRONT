@@ -28,7 +28,7 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
         BRANCH: gh-pages
-        FOLDER: dist/calculadora-web
+        FOLDER: dist/tapitas-top
     - uses: actions/checkout@v3
       with:
           ref: gh-pages
