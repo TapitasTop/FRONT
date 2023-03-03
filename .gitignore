@@ -36,13 +36,7 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-flask/__pycache__
-flask/modules/__pycache__
-*.pyc
 
 # System files
 .DS_Store
 Thumbs.db
-  
-
-
