@@ -1,25 +1,21 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-
-import { AuthenticationService } from './services/authentication.service';
-import { AuthGuardService } from './services/auth-guard.service';
-import { routes } from './routes';
+import { routing } from "./app.routing";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { AppComponent } from "./app.component";
+import { LoginComponent } from "./login/login.component";
+import { HttpClientModule } from "@angular/common/http";
+import { CookieService } from "ngx-cookie-service";
+import { HomeComponent } from "./home/home.component";
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
-    FormsModule,
-    HttpClientModule,
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent
   ],
-  declarations: [AppComponent, LoginComponent],
-  providers: [AuthenticationService, AuthGuardService],
-  bootstrap: [AppComponent],
+  imports: [BrowserModule, routing, FormsModule, HttpClientModule],
+  providers: [CookieService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,31 +1,28 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
+import { Component } from "@angular/core";
+import { UsersService } from "../users/users.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  //  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
 export class LoginComponent {
-  username = '';
-  password = '';
-  errorMessage = '';
+  email: string;
+  password: string;
 
-  constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) {}
+  constructor(public userService: UsersService, public router: Router) {}
 
-  onSubmit() {
-    this.authenticationService
-      .login(this.username, this.password)
-      .subscribe((result) => {
-        if (result === true) {
-          this.router.navigate(['/dashboard']);
-        } else {
-          this.errorMessage = 'Invalid login credentials';
-        }
-      });
+  login() {
+    const user = { email: this.email, password: this.password };
+    this.userService.login(user).subscribe(
+      (      data: { token: String; }) => {
+        this.userService.setToken(data.token);
+        this.router.navigateByUrl("/home");
+      },
+      (      error: any) => {
+        console.log(error);
+      }
+    );
   }
 }
