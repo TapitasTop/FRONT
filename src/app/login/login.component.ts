@@ -25,4 +25,13 @@ export class LoginComponent {
       }
     );
   }
+
+  register() {
+    this.router.navigateByUrl("/register");
+  }
+
+  forgotPassword() {
+    this.router.navigateByUrl("/forgotPassword");
+  }
+
 }
