@@ -6,14 +6,11 @@ import { UsersService } from "../users/users.service";
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"]
 })
+
 export class HomeComponent implements OnInit {
   constructor(public userService: UsersService) {}
-  ngOnInit() {
-    this.getUserLogged();
-  }
-  getUserLogged() {
-    this.userService.getUser().subscribe(user => {
-      console.log(user);
-    });
+  ngOnInit(): void {
+    console.log(this.userService.getToken());
+    throw new Error("Method not implemented.");
   }
 }

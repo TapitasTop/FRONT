@@ -1,75 +1,49 @@
-<!-- Define que el documento esta bajo el estandar de HTML 5 -->
-<!doctype html>
+<!DOCTYPE html>
+<html>
 
-<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
-<html lang="es">
+  <head>
+    <title>Página login</title>
+  </head>
+  
+  <body>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+        <!-- Tabs Titles -->
     
-    <head>
-        
-        <meta charset="utf-8">
-        
-        <title> Formulario de Acceso </title>    
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <meta name="author" content="Videojuegos & Desarrollo">
-        <meta name="description" content="Muestra de un formulario de acceso en HTML y CSS">
-        <meta name="keywords" content="Formulario Acceso, Formulario de LogIn">
-        
-        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
-        
-        <!-- Link hacia el archivo de estilos css -->
-        <link rel="stylesheet" href="login.component.css">
-        
-        <style type="text/css">
-            
-        </style>
-        
-        <script type="text/javascript">
-        
-        </script>
-        
-    </head>
-    
-    <body>
-        
-        <div id="contenedor">
-            <div id="central">
-                <div id="login">
-                    <div class="titulo">
-                        Bienvenido
-                    </div>
-                    <form id="loginform" method="post">
-                      
-                      <input
-                      type="email"
-                      [(ngModel)]="email"
-                      name="email"
-                      placeholder="Email"
-                      required="required"
-                      />
-                        
-                      <input
-                      type="password"
-                      [(ngModel)]="password"
-                      name="password"
-                      placeholder="Password"
-                      required="required"
-                      />
-                        
-                        <button type="submit" (click)="login()">Log in</button>
-                    </form>
-                    <div class="pie-form">
-                      <button type="button" (click)="register()">Register</button>
-                      <button type="button" (click)="forgotPassword()">Forgot Password</button>
-                    </div>
-                </div>
-                <div class="inferior">
-                    <a href="#">Volver</a>
-                </div>
-            </div>
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="./assets/images/logotipoSinFondo.png" id="icon" alt="User Icon">
         </div>
-            
+    
+            <!-- Login Form -->
+            <form method="post">
+                <input type="text" [(ngModel)]="nombreUsuario" id="nombreUsuario" class="fadeIn second" name="nombreUsuario" placeholder="Correo electrónico o Usuario" required="required">
+                <input type="password" [(ngModel)]="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" required="required"><br><br>
+                <input type="submit" (click)="login()" class="fadeIn fourth" value="Log In">
+            </form>
+    
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" (click)="forgotPassword()">¿Has olvidado tu contraseña?</a>
+            </div>
+
+            <!-- Register -->
+            <div id="formFooter">
+                <a class="underlineHover" (click)="register()">¡Regístrate!</a>
+            </div>
+
+            <br>
+
+            <div class="inferior">
+                <a href="#">Volver a la página principal</a>
+            </div>
+
+            <br>
+
+        </div>
+    </div>
+
     </body>
+    
 </html>

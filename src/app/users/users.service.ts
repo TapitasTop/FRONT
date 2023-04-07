@@ -12,16 +12,13 @@ export class UsersService {
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
   login(user: User): Observable<any> {
-    return this.http.post("https://reqres.in/api/login", user);
+    return this.http.post("http://jaime.hopto.org:8080/v1/user/perfil/login", user);
   }
-  setToken(token: String) {
-    this.cookies.set('token', token.toString());
+  setToken(token: string) {
+    this.cookies.set('token', token);
   }
   getToken() {
-    return this.cookies.get("token");
-  }
-  getUser() {
-    return this.http.get("https://reqres.in/api/users/2");
+    return this.cookies.get('token');
   }
   
 }

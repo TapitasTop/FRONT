@@ -8,16 +8,17 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent {
-  email: string;
   password: string;
+  nombreUsuario: string;
 
   constructor(public userService: UsersService, public router: Router) {}
 
   login() {
-    const user = { email: this.email, password: this.password };
-    this.userService.login(user).subscribe(
-      (      data: { token: String; }) => {
-        this.userService.setToken(data.token);
+    const user = { nombreUsuario: this.nombreUsuario, password: this.password };
+    this.userService.login(user).subscribe(data => { const token = data.token; 
+        this.userService.setToken(token);
+        console.log(token);
+        console.log(this.userService.getToken())
         this.router.navigateByUrl("/home");
       },
       (      error: any) => {
