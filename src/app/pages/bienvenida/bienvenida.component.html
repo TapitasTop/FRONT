@@ -10,7 +10,7 @@
       <input type="submit" class="btn btn-primary" (click)="pagina()" value="Iniciar sesión">
     </div>
     
-    <img src="./assets/images/logotipoSinFondo.png" id="image" alt="cover photo" width="200" height="200">
+    <img class="portada" src="./assets/images/logotipoSinFondo.png" id="image" alt="cover photo" width="200" height="200">
 
     <br>
     <br>
@@ -22,25 +22,6 @@
     <div class="container">
       <h1 class="mt-5">¡Bienvenido a TapasTop!</h1>
       <p class="lead">La mejor manera de descubrir las mejores tapas de la ciudad</p>
-
-    <!-- Carrusell-->
-    <div class="container-fluid">
-   
-      <h1>Angular 13 Bootstrap Carousel Example - Codequs.com</h1>
-         
-      <ngb-carousel>
-        <ng-template ngbSlide *ngFor="let image of images">
-          <div class="wrapper">
-            <img [src]="image.src" alt="Random first slide">
-          </div>
-          <div class="carousel-caption">
-            <h3>{{ image.title }}</h3>
-            <p>{{ image.short }}</p>
-          </div>
-        </ng-template>
-      </ngb-carousel>
-           
-    </div>
       
     <!-- Funcionalidades de la página -->
     <div class="row my-5">
@@ -66,8 +47,8 @@
         <div class="card">
           <img src="assets/images/avatar1.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Juan Perez</h5>
-            <p class="card-text">Desarrollador web y amante de las tapas</p>
+            <h5 class="card-title">Gonzalo Poza González</h5>
+            <p class="card-text">Scrum Master y encargado de la base de datos</p>
           </div>
         </div>
       </div>
@@ -75,8 +56,8 @@
         <div class="card">
           <img src="assets/images/avatar2.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Maria Gonzalez</h5>
-            <p class="card-text">Diseñadora gráfica y apasionada de la gastronomía</p>
+            <h5 class="card-title">Ángel Ortuño Ibáñez</h5>
+            <p class="card-text">Encargado de la base de datos</p>
           </div>
         </div>
       </div>
@@ -84,14 +65,81 @@
         <div class="card">
           <img src="assets/images/avatar3.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Pedro Rodriguez</h5>
-            <p class="card-text">Experto en bases de datos y crítico gastronómico amateur</p>
+            <h5 class="card-title">Lucía Agueda Valvuena García</h5>
+            <p class="card-text">Desarrolladora Front-End</p>
           </div>
         </div>
       </div>
       </div>
-    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Gonzalo Aguado Corbelle</h5>
+            <div class="contenedor">
+              <img src="assets/images/gonzalo.png" alt="...">
+            </div>
+            <p class="card-text">Desarrollador Front-End</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-md-4">
+        <div class="card">
+          <img src="assets/images/avatar2.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Juan Paños Fernández</h5>
+            <p class="card-text">Desarrollador Front-End</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="assets/images/avatar3.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Daniel Henríquez Quesada</h5>
+            <p class="card-text">Desarrollador Back-End</p>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="assets/images/avatar1.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Jaime Jiménez Jiménez</h5>
+            <p class="card-text">Desarrollador Back-End</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="assets/images/avatar2.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Jorge Torrejón López</h5>
+            <p class="card-text">Desarrollador Back-End</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    
+    </div>    
 
   </body>
+
+  <footer>
+    <div class="footer">
+        <div class="footer-line">
+        </div>
+        <div class="footer-content">
+          <div class="info-1">
+            <p>2023 TapasTop - Todos los derechos reservados</p>
+          </div>
+        </div>
+      </div>
+  </footer>
+
 
 </html>
