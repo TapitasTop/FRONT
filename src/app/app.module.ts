@@ -13,7 +13,6 @@ import { LoginComponent } from "./pages/login/login.component";
 import { BienvenidaComponent } from "./pages/bienvenida/bienvenida.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { ForgotPasswordComponent } from './pages/forgotPassword/forgotPassword.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
@@ -21,12 +20,10 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
     ForgotPasswordComponent,
     BienvenidaComponent,
     HomeComponent,
     ImageUploadComponent,
-    PaginaInicioComponent,
     RegistroComponent
   ],
   imports: [
