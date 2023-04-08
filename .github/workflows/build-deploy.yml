@@ -27,6 +27,7 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
         BRANCH: gh-pages
         FOLDER: dist/tapitas-top
     - uses: actions/checkout@v3
