@@ -6,26 +6,35 @@ import {fas} from '@fortawesome/free-solid-svg-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PaginaInicioComponent } from './pages/pagina-inicio/pagina-inicio.component';
+import { AppComponent } from "./app.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { BienvenidaComponent } from "./pages/bienvenida/bienvenida.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { ForgotPasswordComponent } from './pages/forgotPassword/forgotPassword.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    BienvenidaComponent,
+    HomeComponent,
+    ImageUploadComponent,
     PaginaInicioComponent,
-    RegistroComponent,
-    ImageUploadComponent
+    RegistroComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
+    BrowserModule, 
+    HttpClientModule, 
+    BrowserAnimationsModule,
     NgbModule,
+    AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
   ],
@@ -37,4 +46,3 @@ export class AppModule {
     library.addIconPacks(fas);
   }
 }
- 

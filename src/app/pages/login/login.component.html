@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Página login</title>
+  </head>
+  
+  <body>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="./assets/images/logotipoSinFondo.png" id="icon" alt="User Icon">
+        </div>
+    
+            <!-- Login Form -->
+            <form method="post">
+                <input type="text" [(ngModel)]="nombreUsuario" id="nombreUsuario" class="fadeIn second" name="nombreUsuario" placeholder="Correo electrónico o Usuario" required="required">
+                <input type="password" [(ngModel)]="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" required="required"><br><br>
+                <input type="submit" (click)="login()" class="fadeIn fourth" value="Log In">
+            </form>
+    
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" (click)="forgotPassword()">¿Has olvidado tu contraseña?</a>
+            </div>
+
+            <!-- Register -->
+            <div id="formFooter">
+                <a class="underlineHover" (click)="register()">¡Regístrate!</a>
+            </div>
+
+            <br>
+
+            <div class="inferior">
+                <a href="#">Volver a la página principal</a>
+            </div>
+
+            <br>
+
+        </div>
+    </div>
+
+    </body>
+    
+</html>

@@ -27,23 +27,36 @@ export class AppService {
     return this.http.get(`${this.baseUrl}/files`);
   }
 
+  login(user: any): Observable<any> {
+    return this.http.post(
+      'http://jaime.hopto.org:8080/v1/user/perfil/login',
+      user
+    );
+  }
+
   //Llamada para comprobar si la fecha de nacimiento es valida y el usuario es mayor de edad
   getFechaValida(fecha: string) {
-    return this.http.get<{cadena: string}>(`${this.baseUrl}/v1/user/perfil/fecha?fecha=${fecha}`);
+    return this.http.get<{ cadena: string }>(
+      `${this.baseUrl}/v1/user/perfil/fecha?fecha=${fecha}`
+    );
   }
 
   //Comprueba que el formato del correo introducido es correcto
   getFormatoCorreo(correo: string) {
-    return this.http.get<{cadena: string}>(`${this.baseUrl}/v1/user/perfil/correo?email=${correo}`)
+    return this.http.get<{ cadena: string }>(
+      `${this.baseUrl}/v1/user/perfil/correo?email=${correo}`
+    );
   }
 
   //Comprueba si ya existe un usuario con ese nombre o correo
-  getUsuarioExiste(usuario: string){
-    return this.http.get<{cadena: string}>(`${this.baseUrl}/v1/user/perfil/existe?user=${usuario}`)
+  getUsuarioExiste(usuario: string) {
+    return this.http.get<{ cadena: string }>(
+      `${this.baseUrl}/v1/user/perfil/existe?user=${usuario}`
+    );
   }
 
   //Crea un nuevo usuario (ejemplo POST)
-  creaNuevoUsuario(body: any){
-    return this.http.post<any>(`${this.baseUrl}/v1/user/perfil`, body)
+  creaNuevoUsuario(body: any) {
+    return this.http.post<any>(`${this.baseUrl}/v1/user/perfil`, body);
   }
 }
