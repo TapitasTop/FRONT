@@ -1,0 +1,59 @@
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+.step-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(187, 187, 187);
+    transition: .4s;
+}
+.step-button[aria-expanded="true"] {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(55, 112, 216);
+    color: #fff;
+}
+.done {
+    background-color:  rgb(55, 112, 216);
+    color: #fff;
+}
+.step-item {
+    z-index: 10;
+    text-align: center;
+}
+#progress {
+    position: absolute;
+    width: 95%;
+    z-index: 5;
+    height: 10px;
+    margin-left: 18px;
+    margin-bottom: 18px;
+}
+/* to customize progress bar */
+#progress::-webkit-progress-value {
+    background-color: gray;
+    transition: .5s ease;
+}
+#progress::-webkit-progress-bar {
+    background-color: gray;
+
+}
+
+.preview {
+    width: 120px;
+    height: 120px;
+    background-color: #868d9b;
+    background: url("https://cdn.pixabay.com/photo/2017/03/24/06/49/camera-2170377_960_720.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #ffffff;
+    border-radius: 120px;
+    
+  }
