@@ -1,16 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
 /* Estilos generales */
-  
+
   .container {
-    max-width: 1250px;
+    max-width: 75%;
     margin: auto;
     padding: 20px;
   }
 
-  .contenedor {
-    width: 400px; /* ancho del contenedor */
-    height: 300px; /* altura del contenedor */
-    border: 1px solid #ccc; /* borde para visualizar el contenedor */
-    overflow: hidden; /* oculta el contenido que excede las dimensiones del contenedor */
+  .row justify-content-center align-items-center{
+    max-width: 75%;
+  }
+
+  .col-md-4 {
+    max-width: 75%;
+  }
+
+  .card justify-content-center align-items-center{
+    max-width: 75%;
   }
 
   img {
@@ -25,12 +36,6 @@
   }
   
   /* Estilos del encabezado */
-
-  .portada {
-    position: fixed;
-    float: left;
-    transform: translateX(60%);
-  }
   
   header {
     background-color: #007bff;
@@ -60,11 +65,7 @@
   }
 
   .button-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 20px;
-    transform: translateX(-30%) translateY(30%);
+    text-align: center;
   }
 
   input[type=button], input[type=submit], input[type=reset]  {
@@ -127,12 +128,14 @@
     margin-right: 0;
   }
 
-  h1 {
+  .mt-5 {
+    font-weight: bold;
     text-align: center;
   }
 
-  .mt-5 {
+  .my-5 {
     font-weight: bold;
+    text-decoration: underline;
   }
 
   .lead {
@@ -169,46 +172,3 @@
     max-width: 200px;
     height: auto;
   }
-  
-  /* Estilos del pie de página */
-  
-  footer {
-    position: relative;
-    
-    width: 100%;
-    background-color: #90d7e2;
-    text-align: center;
-    padding: 10px;
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    
-   
-    padding: 10px;
-    text-align: center;
-  }
-  .footer {
-    display: relative;
-    width: 99%;
-    flex-direction: column;
-    margin-top: 0%;
-    clear: both;
-  }
-  
-  .footer-line {
-    border-top: 2px solid #0d98bc;
-    display: flex;
-  
-  }
-  
-  .footer-content {
-    font-size: 15px;
-    display: flex;
-    margin-bottom: 1%;
-    justify-content: center;
-    color: #666;
-    margin-top: 1%;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
