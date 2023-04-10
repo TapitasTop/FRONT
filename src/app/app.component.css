@@ -1,0 +1,73 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+ 
+ .container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+
+  /* Estilos del pie de página */
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 10vh;
+  }
+  
+  .page-content {
+    flex: 1;
+  }
+  
+  .page-footer {
+    position: relative;
+    margin-top: -50px; /* ajustar según la altura del footer */
+    height: 50px; /* altura del footer */
+  }
+  
+  footer {
+    position: absolute;
+    width: 100%;
+    background-color: #90d7e2;
+    text-align: center;
+    padding: 10px;
+    display: absolute;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px; /* Altura del footer */
+    padding: 10px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .footer {
+    display: absolute;
+    width: 99%;
+    flex-direction: column;
+    margin-top: 0%;
+    clear: both;
+  }
+  
+  .footer-line {
+    border-top: 2px solid #0d98bc;
+    display: absolute;
+  
+  }
+  
+  .footer-content {
+    font-size: 15px;
+    display: flex;
+    margin-bottom: 1%;
+    justify-content: center;
+    color: #666;
+    margin-top: 1%;
+    font-family: 'Open Sans', sans-serif;
+  }
+  

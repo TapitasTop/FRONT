@@ -5,92 +5,132 @@
   </head>
   
   <body>
-    <!-- Encabezado de la página -->
+    <div class="container">
+    <!-- Encabezado de la página --> 
+    <div class="container-fluid m-2  text-center">
+      <img class="portada" src="./assets/images/logotipoSinFondo.png" id="image" alt="cover photo" width="200" height="200">
+    </div>
+
+    <!-- Contenido de la página -->
+    <h1 class="mt-5">¡Bienvenido a TapasTop!</h1>
+    <p class="lead">La mejor manera de descubrir las mejores tapas de la ciudad</p><br>
+
     <div class="button-container">
       <input type="submit" class="btn btn-primary" (click)="pagina()" value="Iniciar sesión">
     </div>
-    
-    <img src="./assets/images/logotipoSinFondo.png" id="image" alt="cover photo" width="200" height="200">
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <!-- Contenido de la página -->
-    <div class="container">
-      <h1 class="mt-5">¡Bienvenido a TapasTop!</h1>
-      <p class="lead">La mejor manera de descubrir las mejores tapas de la ciudad</p>
-
-    <!-- Carrusell-->
-    <div class="container-fluid">
-   
-      <h1>Angular 13 Bootstrap Carousel Example - Codequs.com</h1>
-         
-      <ngb-carousel>
-        <ng-template ngbSlide *ngFor="let image of images">
-          <div class="wrapper">
-            <img [src]="image.src" alt="Random first slide">
-          </div>
-          <div class="carousel-caption">
-            <h3>{{ image.title }}</h3>
-            <p>{{ image.short }}</p>
-          </div>
-        </ng-template>
-      </ngb-carousel>
-           
-    </div>
       
     <!-- Funcionalidades de la página -->
-    <div class="row my-5">
+    <hr>
+    <div class="row mt-5">
       <div class="col-md-4">
-        <h3>Descubre nuevas tapas</h3>
+        <h3 class="mt-5">Descubre nuevas tapas</h3>
         <p>Busca y encuentra las mejores tapas de la ciudad, y comparte tus descubrimientos con la comunidad</p>
       </div>
       <div class="col-md-4">
-        <h3>Valora las tapas</h3>
+        <h3 class="mt-5">Valora las tapas</h3>
         <p>Califica y comenta tus tapas favoritas, y descubre qué opinan otros usuarios de los establecimientos de tu zona</p>
       </div>
       <div class="col-md-4">
-        <h3>Crea tu perfil</h3>
+        <h3 class="mt-5">Crea tu perfil</h3>
         <p>Regístrate en Valorar Tapas y crea tu perfil de usuario, guarda tus tapas favoritas y comparte tus experiencias</p>
       </div>
     </div>
+    <br>
+    <br>
 
     <!-- Información del equipo -->
     <hr>
-    <h2 class="my-5">Nuestro Equipo</h2>
+    <h2 class="mt-5">Nuestro Equipo</h2><br>
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <img src="assets/images/avatar1.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Juan Perez</h5>
-            <p class="card-text">Desarrollador web y amante de las tapas</p>
+            <h5 class="mt-5">Gonzalo Poza González</h5><br>
+              <img src="assets/images/clodsire-pokemon-scarlet-and-violet.gif" alt="...">
+            <p class="mt-5">Scrum Master y encargado de la base de datos</p>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <img src="assets/images/avatar2.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Maria Gonzalez</h5>
-            <p class="card-text">Diseñadora gráfica y apasionada de la gastronomía</p>
+            <h5 class="mt-5">Gonzalo Aguado Corbelle</h5><br>
+              <img src="assets/images/gonzalo.png" alt="...">
+            <p class="mt-5">Desarrollador Front-End</p>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <img src="assets/images/avatar3.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Pedro Rodriguez</h5>
-            <p class="card-text">Experto en bases de datos y crítico gastronómico amateur</p>
+            <h5 class="mt-5">Gonzalo Aguado Corbelle</h5><br>
+              <img src="assets/images/gonzalo.png" alt="...">
+            <p class="mt-5">Desarrollador Front-End</p>
           </div>
         </div>
-      </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mt-5">Gonzalo Aguado Corbelle</h5><br>
+              <img src="assets/images/gonzalo.png" alt="...">
+            <p class="mt-5">Desarrollador Front-End</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mt-5">Gonzalo Aguado Corbelle</h5><br>
+              <img src="assets/images/gonzalo.png" alt="...">
+            <p class="mt-5">Desarrollador Front-End</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mt-5">Gonzalo Aguado Corbelle</h5><br>
+              <img src="assets/images/gonzalo.png" alt="...">
+            <p class="mt-5">Desarrollador Front-End</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mt-5">Gonzalo Aguado Corbelle</h5><br>
+              <img src="assets/images/gonzalo.png" alt="...">
+            <p class="mt-5">Desarrollador Front-End</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mt-5">Jaime Jiménez Jiménez</h5><br>
+              <img src="assets/images/alonso-toma-winner.gif" alt="...">
+            <p class="mt-5">Desarrollador Back-End</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mt-5">Jorge Torrejón López</h5><br>
+              <img src="assets/images/018.png" alt="...">
+            <p class="mt-5">Desarrollador Back-End</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   </body>
 
