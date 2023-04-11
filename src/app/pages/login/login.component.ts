@@ -14,16 +14,13 @@ export class LoginComponent implements OnInit {
   nombreUsuario: "";
 
   constructor(private httpService: AppService, private router: Router, private userService: AppService, private cookieService: CookieService) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  ngOnInit(): void {}
 
   login() {
     const user = { nombreUsuario: this.nombreUsuario, password: this.password };
     this.userService.login(user).subscribe(
       (data) => {
         this.cookieService.set('Cookie', data.token);
-        console.log(this.cookieService.get('Cookie'));
         this.router.navigateByUrl('/home');
       },
       (error: any) => {

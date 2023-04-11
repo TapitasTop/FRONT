@@ -11,9 +11,7 @@ import { Router } from '@angular/router'
 export class BienvenidaComponent implements OnInit {
   constructor(private httpService: AppService, private router: Router, private userService: AppService) {
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  ngOnInit(): void {}
 
   pagina() {
     this.router.navigateByUrl("/login");
