@@ -34,6 +34,14 @@ export class AppService {
     );
   }
 
+  //Llamada para devolver el usuario
+  getUsuario(token: any): Observable<any> {
+    return this.http.post(
+      'http://jaime.hopto.org:8080/v1/user/perfil/obtener',
+      token
+    );
+  }
+
   //Llamada para comprobar si la fecha de nacimiento es valida y el usuario es mayor de edad
   getFechaValida(fecha: string) {
     return this.http.get<{ cadena: string }>(

@@ -1,0 +1,22 @@
+h2 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+}
+
+img {
+    max-width: 100%; /* asegura que la imagen no exceda el ancho del contenedor */
+    max-height: 100%; /* asegura que la imagen no exceda la altura del contenedor */
+    display: block; /* establece que la imagen sea un elemento de bloque */
+    margin: auto; /* centra la imagen horizontalmente */
+  }
+
+  .container {
+    text-align: center;
+  }
