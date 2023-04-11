@@ -16,6 +16,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { ForgotPasswordComponent } from './pages/forgotPassword/forgotPassword.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     BienvenidaComponent,
     HomeComponent,
     ImageUploadComponent,
-    RegistroComponent
+    RegistroComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule, 
