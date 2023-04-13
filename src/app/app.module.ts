@@ -17,6 +17,7 @@ import { ForgotPasswordComponent } from './pages/forgotPassword/forgotPassword.c
 import { RegistroComponent } from './pages/registro/registro.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     HomeComponent,
     ImageUploadComponent,
     RegistroComponent,
-    PerfilComponent
+    PerfilComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule, 

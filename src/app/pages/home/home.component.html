@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d98bc;">
+<!--nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d98bc;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="./assets/images/icono.png" id="icon" alt="User Icon" width="45" height="45">
@@ -30,7 +30,9 @@
 
     </div>
   </div>
-</nav>
+</nav-->
+
+<app-navbar></app-navbar>
 
 <body>
   <main>
@@ -43,7 +45,7 @@
             <img src="data:image/jpg;base64,{{foto}}" id="icon" alt="User Icon"><br>
             <h4>{{nombre}}</h4>
             <h5>{{nombreUsuario}}</h5>
-            <button class="btn btn-outline-secondary" type="button" href="/perfil">Ir al perfil</button>
+            <button class="btn btn-outline-secondary" type="button" routerLink="/perfil">Ir al perfil</button>
           </div>
         </div>
         
@@ -57,7 +59,7 @@
         </div>
       </div>
 
-      <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="p-5 my-4 bg-light rounded-3">
         <div class="container-fluid py-5">
           <h2 class="display-5 fw-bold">Mis platos favoritos:</h2>
           <p class="col-md-8 fs-4">Platos favoritos</p>

@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <div class="m-5 p-5 bg-white rounded">
     <h1>Mi Perfil</h1>
     <p>Aquí podrás ver tu información personal y modificarla.</p>
@@ -154,11 +156,11 @@
                 </button>
             </div>
             <ng-template #elseBlock>
-                <button type="button" class="btn btn-success mx-2" (click)="cerrarModoEdicion()">
+                <button type="button" class="btn btn-success mx-2" (click)="guardarCambios(); cerrarModoEdicion()">
                     Guardar cambios
                 </button> 
 
-                <button type="button" class="btn btn-danger mx-2" (click)="cerrarModoEdicion()">
+                <button type="button" class="btn btn-danger mx-2" (click)="cancelarCambios(); cerrarModoEdicion()">
                     Cancelar
                 </button>
                 <br/>
@@ -168,3 +170,4 @@
         </div>
         
     </div>
+</div>
