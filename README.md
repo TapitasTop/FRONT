@@ -1,3 +1,3 @@
 # TapitasTop
 
-https://tapitastop.github.io/FRONT/home
+https://tapitastop.github.io/FRONT/
