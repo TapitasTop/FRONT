@@ -1,0 +1,12 @@
+.preview {
+    width: 130px;
+    height: 130px;
+    background-color: #868d9b;
+    background: url("https://cdn.pixabay.com/photo/2017/03/24/06/49/camera-2170377_960_720.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #ffffff;
+    border-radius: 130px;
+    
+  }

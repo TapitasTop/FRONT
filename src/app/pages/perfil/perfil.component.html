@@ -1,0 +1,174 @@
+
+<app-navbar></app-navbar>
+
+<div class="m-5 p-5 bg-white rounded">
+    <h1>Mi Perfil</h1>
+    <p>Aquí podrás ver tu información personal y modificarla.</p>
+
+
+
+    <div class="container">
+        <!--Información obligatoria-->
+        <!--Fila 1-->
+        <div class="row">
+            <div class="col-sm">
+                <!--Correo electrónico-->
+                <div class="form-group my-3">
+                    <label for="email">Correo electrónico: <label style="color:red;">*</label>
+                    </label>
+                    <input type="email" class="form-control" readonly id="email" name="email" aria-describedby="emailHelp"
+                        placeholder="Introduce tu e-mail" [(ngModel)]="email"
+                        onclick="document.getElementById('progressButton3').setAttribute('disabled', '')">
+                    <small id="emailHelp" class="form-text text-muted">Prometemos no compartirlo con nadie,
+                        ni
+                        enviar correo no deseado.</small>
+                </div>
+
+                <!-- Mensaje de error si no es correcto el formato -->
+                <div *ngIf="formatoCorreoError" class="alert alert-danger alert-dismissible fade show"
+                    style="text-align: left;" role="alert">
+                    <p> El formato del correo electrónico introducido no es correcto.</p>
+                    <hr>
+                    <p class="mb-0">Por favor, revisa el campo de <b>correo electrónico</b>.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <!-- Mensaje de error si ya existe el correo -->
+                <div *ngIf="correoError" class="alert alert-danger alert-dismissible fade show"
+                    style="text-align: left;" role="alert">
+                    <p> El correo electrónico ya está registrado en la página. Introduce uno nuevo.</p>
+                    <hr>
+                    <p class="mb-0">Por favor, revisa el campo de <b>correo electrónico</b>.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="col-sm">
+                <!--Nombre de usuario-->
+                <div class="form-group my-3">
+                    <label for="userName">Nombre de usuario: <label style="color:red;">*</label></label>
+                    <input type="text" class="form-control" readonly id="userName" name="userName" aria-describedby="emailHelp"
+                        placeholder="Introduce un nombre de usuario" [(ngModel)]="userName"
+                        onclick="document.getElementById('progressButton3').setAttribute('disabled', '')">
+                    <small id="emailHelp" class="form-text text-muted">Piensa algo original ¡no puede
+                        coincidir
+                        con otro existente!</small>
+                </div>
+
+                <!-- Mensaje de error si coincide el nombre de usuario -->
+                <div *ngIf="usuarioError" class="alert alert-danger alert-dismissible fade show"
+                    style="text-align: left;" role="alert">
+                    <p> El nombre de usuario introducido coincide con otro existe, prueba con otro.</p>
+                    <hr>
+                    <p class="mb-0">Por favor, revisa el campo de <b>nombre de usuario</b>.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        <!--Información opcional-->
+        <!--Fila 2-->
+        <div class="row">
+            <!--Columna -->
+            <div class="col-sm">
+                <div class="form-group my-3">
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" class="form-control" readonly id="nombre" name="nombre" aria-describedby="emailHelp"
+                        placeholder="Introduce tu nombre" [(ngModel)]="nombre">
+                </div>
+
+                <div class="form-group my-3">
+                    <label for="apellidos">Apellidos: </label>
+                    <input type="text" class="form-control" readonly id="apellidos" name="apellidos" aria-describedby="emailHelp"
+                        placeholder="Introduce tus apellidos" [(ngModel)]="apellidos">
+                </div>
+
+                <div class="form-group my-3">
+                    <label for="sexo">Sexo: </label>
+                    <select class="form-select" placeholder="Prefiero no decirlo" disabled id="sexo" name="sexo"
+                        [(ngModel)]="sexo">
+                        <option selected>Prefiero no decirlo</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!--Columna-->
+            <div class="col-sm pt-5">
+                <label for="foto">Foto de perfil: </label> <br />
+                <!--app-image-upload></app-image-upload-->
+                <div class="container-fluid">
+                    <div class="container" style="width: 120px;
+                    height: 120px; ">
+                        <img [src]="preview" class="preview" />
+                    </div>
+
+                    <div *ngIf="modoEdicion" class="btn btn-default p-0">
+                        <input type="file" accept="image/*" (change)="selectFile($event)" />
+                    </div>
+
+                </div>
+
+                <div *ngIf="currentFile && progress" class="progress my-3">
+                    <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{ progress }}"
+                        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
+                        {{ progress }}%
+                    </div>
+                </div>
+
+                <div *ngIf="message" class="alert alert-secondary my-3" role="alert">
+                    {{ message }}
+                </div>
+            </div>
+        </div>
+
+        <!--Fila 3-->
+        <div class="row">
+            <!--Columna-->
+            <div class="col-sm">
+                <div class="form-group my-3">
+                    <label for="pais">País: </label>
+                    <input type="text" class="form-control" readonly id="pais" name="pais" aria-describedby="emailHelp"
+                        placeholder="Introduce tu país de origen" [(ngModel)]="pais">
+                </div>
+            </div>
+
+            <!--Columna-->
+            <div class="col-sm">
+                <div class="form-group my-3">
+                    <label for="localizacion">Localización: </label>
+                    <input type="text" class="form-control" readonly id="localizacion" name="localizacion"
+                        aria-describedby="emailHelp" placeholder="Introduce tu localización" [(ngModel)]="localizacion">
+                </div>
+            </div>
+        </div>
+
+        <!--Descripción-->
+        <div class="form-group my-3">
+            <label for="descripcion">Descripción: </label>
+            <input type="text" class="form-control" id="descripcion" readonly name="descripcion" aria-describedby="emailHelp"
+                placeholder="Introduce una descripción para tu perfil" [(ngModel)]="descripcion">
+        </div>
+        <div class="container-fluid text-center mt-5">
+            <div *ngIf="!modoEdicion; else elseBlock">
+                <button type="button" class="btn btn-primary" (click)="activarModoEdicion()">
+                    Activar modo edición
+                </button>
+            </div>
+            <ng-template #elseBlock>
+                <button type="button" class="btn btn-success mx-2" (click)="guardarCambios(); cerrarModoEdicion()">
+                    Guardar cambios
+                </button> 
+
+                <button type="button" class="btn btn-danger mx-2" (click)="cancelarCambios(); cerrarModoEdicion()">
+                    Cancelar
+                </button>
+                <br/>
+                <small>Ahora puedes modificar los campos.</small>
+            </ng-template>
+            
+        </div>
+        
+    </div>
+</div>

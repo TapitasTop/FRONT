@@ -35,9 +35,10 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  /*
   pagina() {
     this.cookieService.delete('Cookie')
     this.router.navigateByUrl("/login");
   }
-
+  */
 }
