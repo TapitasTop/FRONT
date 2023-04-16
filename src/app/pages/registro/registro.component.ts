@@ -46,7 +46,7 @@ export class RegistroComponent implements OnInit {
   preview = '';
   base64String = ''
 
-  
+  finalizado = false;
   
   
 

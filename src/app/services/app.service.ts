@@ -67,4 +67,8 @@ export class AppService {
   creaNuevoUsuario(body: any) {
     return this.http.post<any>(`${this.baseUrl}/v1/user/perfil`, body);
   }
+
+  editarDatosPerfil(body: any){
+    return this.http.put<any>(`${this.baseUrl}/v1/user/perfil/modificarDatos`, body)
+  }
 }

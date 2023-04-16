@@ -1,6 +1,6 @@
 <!-- CABECERA DE REGISTRO CON LOGO -->
 <div class="container-fluid m-2  text-center">
-    <img src="assets/images/logotipoSinFondo.png" style="width: 10%;">
+    <img src="assets/images/logotipoSinFondo.png" style="width: 10%;" class="btn" routerLink="/">
     <h1 class="lead mt-4"><b>¡Regístrate!</b> Sigue los siguientes pasos para unirte a nuestra plataforma.</h1>
 </div>
 
@@ -300,6 +300,14 @@
                                     [(ngModel)]="descripcion">
                             </div>
 
+                            <!--Mensaje registro correcto-->
+                            <div *ngIf="finalizado" class="alert alert-success m-5" role="alert">
+                                <h4 class="alert-heading">¡Enhorabuena! <fa-icon [icon]="['fas', 'face-smile-wink']"></fa-icon></h4>
+                                <p>Has completado el proceso de registro en TapasTop.</p>
+                                <hr>
+                                <p class="mb-0">Por favor, revisa tu correo electrónico y verifica la cuenta a través del enlace enviado.<br/> Luego podrás acceder <a routerLink="/login" class="alert-link">iniciando sesión</a>.</p>
+                            </div>
+
                             <!--Botón para ir a la fase anterior (pulsa al botón de progreso)-->
                             <button class="btn btn-primary m-3" 
                                 onclick="document.getElementById('progressButton2')?.click()">
@@ -308,9 +316,11 @@
 
                             <!--Botón para ir a la fase anterior (pulsa al botón de progreso)-->
                             <button class="btn btn-primary m-3" 
-                                (click)="crearUsuario()">
+                                (click)="crearUsuario(); finalizado=true">
                               Finalizar
                             </button>
+
+                            
                         </div>
                     </div>
                 </div>
