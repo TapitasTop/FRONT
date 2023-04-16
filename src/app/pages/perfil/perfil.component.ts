@@ -16,6 +16,8 @@ export class PerfilComponent implements OnInit {
   password = ""
   password2 = ""
 
+  fechaNacimiento = ""
+
   nombre = ""
   apellidos = ""
   sexo = ""
@@ -64,7 +66,11 @@ export class PerfilComponent implements OnInit {
         this.localizacion = user.localizacion
         this.descripcion = user.introduccion
         this.foto = user.foto
+        this.password = user.contrasena
+        this.fechaNacimiento = user.fechaNacimiento
         this.preview = "data:image/jpg;base64," + this.foto;
+
+        console.log(user)
 
         this.email2 = user.correo
         this.userName2 = user.nombreUsuario
@@ -195,6 +201,35 @@ export class PerfilComponent implements OnInit {
     this.descripcion2 = this.descripcion
     this.foto2 = this.foto
     this.preview = "data:image/jpg;base64," + this.foto
+
+    let body = {
+      token: {
+        token: this.cookieService.get('Cookie')
+      },
+      user: {
+        apellidos: this.apellidos,
+        correo: this.email,
+        fechaNacimiento: this.fechaNacimiento,
+        foto: this.foto,
+        genero: this.sexo,
+        introduccion: this.descripcion,
+        localizacion: this.localizacion,
+        nombre: this.nombre,
+        nombreUsuario: this.userName,
+        pais: this.pais,
+        password: this.password
+      }
+    }
+    console.log(body)
+
+    this.httpService.editarDatosPerfil(body).subscribe({
+      next: (response) => {
+        this.cookieService.set('Cookie', response.token)
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    })
   }
 
   //Se vuelve a las variables de respaldo
