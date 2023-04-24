@@ -15,7 +15,16 @@ export class SearchDegustPipe implements PipeTransform {
     tipoComida: string,
     fechaAlta: string,
     calificadorGusto: string
-  }[], searchInput: string, searchMethod: DegustSearchMethod): any[] {
+  }[], searchInput: string, searchMethod: DegustSearchMethod): {
+    nombre: string,
+    origen: string,
+    decripcion: string,
+    foto: string,
+    media: number,
+    tipoComida: string,
+    fechaAlta: string,
+    calificadorGusto: string
+  }[] {
     searchInput = searchInput.toLowerCase()
     switch (searchMethod) {
       case DegustSearchMethod.nombre:
