@@ -71,4 +71,9 @@ export class AppService {
   editarDatosPerfil(body: any){
     return this.http.put<any>(`${this.baseUrl}/v1/user/perfil/modificarDatos`, body)
   }
+
+  //Devuelve una lista con todas las degustaciones
+  getDegustaciones(){
+    return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustaciones`)
+  }
 }

@@ -25,6 +25,9 @@ export class SearchDegustPipe implements PipeTransform {
     fechaAlta: string,
     calificadorGusto: string
   }[] {
+    if (searchInput == "")
+      return degustacion
+
     searchInput = searchInput.toLowerCase()
     switch (searchMethod) {
       case DegustSearchMethod.nombre:
