@@ -18,6 +18,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchDegustPipe } from './search-degust.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ImageUploadComponent,
     RegistroComponent,
     PerfilComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchDegustPipe
   ],
   imports: [
     BrowserModule, 
