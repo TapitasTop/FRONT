@@ -68,7 +68,13 @@ export class AppService {
     return this.http.post<any>(`${this.baseUrl}/v1/user/perfil`, body);
   }
 
+  //Editar los datos del perfil de usuario
   editarDatosPerfil(body: any){
     return this.http.put<any>(`${this.baseUrl}/v1/user/perfil/modificarDatos`, body)
+  }
+
+  //Añadir una nueva degustación con un local asociado y una valoración
+  aniadirDegustacion(body: any){
+    return this.http.post<any>(`${this.baseUrl}/v1/degustacion`, body)
   }
 }
