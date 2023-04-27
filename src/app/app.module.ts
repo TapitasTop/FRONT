@@ -19,6 +19,7 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchDegustPipe } from './search-degust.pipe';
+import { SearchLocalPipe } from './search-local.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SearchDegustPipe } from './search-degust.pipe';
     RegistroComponent,
     PerfilComponent,
     NavbarComponent,
-    SearchDegustPipe
+    SearchDegustPipe,
+    SearchLocalPipe
   ],
   imports: [
     BrowserModule, 
