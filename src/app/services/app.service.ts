@@ -87,4 +87,9 @@ export class AppService {
     return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustacionesOrdenadas`)
   }
 
+  //Devuelve una lista con todos los locales
+  getLocales(){
+    return this.http.get<any>(`${this.baseUrl}/v1/local/listaLocales`)
+  }
+
 }
