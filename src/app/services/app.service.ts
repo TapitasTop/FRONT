@@ -27,12 +27,21 @@ export class AppService {
     return this.http.get(`${this.baseUrl}/files`);
   }
 
+  //Llamada para enviar token y hacer login
   login(user: any): Observable<any> {
     return this.http.post(
       'http://jaime.hopto.org:8080/v1/user/perfil/login',
       user
     );
   }
+
+    //Llamada para enviar token y hacer login
+    forgotPassword(email: any): Observable<any> {
+      return this.http.post(
+        'http://jaime.hopto.org:8080/v1/user/perfil/recuperar',
+        email
+      );
+    }
 
   //Llamada para devolver el usuario
   getUsuario(token: any): Observable<any> {
