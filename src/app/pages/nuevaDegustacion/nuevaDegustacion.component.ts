@@ -41,7 +41,7 @@ export class NuevaDegustacionComponent implements OnInit {
   degustaciones: {
     nombre: string,
     origen: string,
-    decripcion: string,
+    descripcion: string,
     foto: string,
     media: number,
     tipoComida: string,
@@ -66,9 +66,13 @@ export class NuevaDegustacionComponent implements OnInit {
   searchInputDegusts = ""
   searchMethod: DegustSearchMethod = DegustSearchMethod.nombre
 
+  metodos = [DegustSearchMethod.nombre, DegustSearchMethod.origen, DegustSearchMethod.descripcion, DegustSearchMethod.tipoComida, DegustSearchMethod.calificadorGusto]
+  method=0
+  
   constructor(private httpService: AppService, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.searchMethod)
     const token = { token: this.cookieService.get('Cookie') };
 
     this.httpService.getLocales().subscribe({

@@ -18,8 +18,8 @@
     <!--Lista de resultados-->
     <!--div class="container mt-4"
         style="height: 200px; overflow-y: scroll; border-radius: 2px; border: 1px solid #cfd1c9;"-->
-    <select [(ngModel)]="this.selectLocales" (change)="updateDegusts();"
-        class="form-select form-select-lg mb-3 mt-3" multiple aria-label="multiple select example">
+    <select [(ngModel)]="this.selectLocales" (change)="updateDegusts();" class="form-select form-select-lg mb-3 mt-3"
+        multiple aria-label="multiple select example">
         <option [value]="local" *ngFor="let local of restaurantes  | searchLocal: searchInputLocales">
             {{local.nombre}}, {{local.direccion}}
         </option>
@@ -33,8 +33,8 @@
         <div class="col-sm">
             <div class="form-group my-3">
                 <label for="nombre">Nombre: </label>
-                <input type="text" (input)="forgetLocal()" class="form-control" id="nombreLocal" name="nombreLocal" aria-describedby="emailHelp"
-                    placeholder="Introduce el nombre del local" [(ngModel)]="nombreLocal">
+                <input type="text" (input)="forgetLocal()" class="form-control" id="nombreLocal" name="nombreLocal"
+                    aria-describedby="emailHelp" placeholder="Introduce el nombre del local" [(ngModel)]="nombreLocal">
             </div>
         </div>
 
@@ -57,18 +57,30 @@
         registrados del local. </p>
 
     <!--Buscador de tapas-->
-    <div class="input-group mt-4" style="width: 70%;" role="search">
-        <input class="form-control" type="search" placeholder="Buscar tapas existentes en el local" aria-label="Buscar">
-        <button class="btn btn-secondary" id="basic-addon2">
-            <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
-        </button>
+    <div class="row">
+        <div class="input-group mt-4" style="width: 40%;" role="search">
+            <input [(ngModel)]="searchInputDegusts" class="form-control" type="search"
+                placeholder="Buscar tapas existentes en el local" aria-label="Buscar">
+            <button class="btn btn-secondary" id="basic-addon2">
+                <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
+            </button>
+        </div>
+        <div class="input-group mt-4" style="width: 40%;" role="search">
+            <span class="input-group-text">Método de búsqueda</span>
+            <select [(ngModel)]="this.method" (change)="this.searchMethod=metodos[method]" class="form-select"
+                aria-label="Default select example">
+                <option selected [value]="0">Nombre</option>
+                <option [value]="1">Origen</option>
+                <option [value]="2">Descripción</option>
+                <option [value]="3">Tipo de comida</option>
+                <option [value]="4">Calificador de gusto</option>
+            </select>
+        </div>
     </div>
-
     <!--Lista de resultados-->
-    <select [(ngModel)]="this.selectDegust" (change)="rellenarDatos()"
-        class="form-select form-select-lg mb-3 mt-3" multiple aria-label="multiple select example">
-        <option [value]="degust"
-            *ngFor="let degust of degustaciones | searchDegust: searchInputDegusts : searchMethod">
+    <select [(ngModel)]="this.selectDegust" (change)="rellenarDatos()" class="form-select form-select-lg mb-3 mt-3"
+        multiple aria-label="multiple select example">
+        <option [value]="degust" *ngFor="let degust of degustaciones | searchDegust: searchInputDegusts: searchMethod">
             {{degust.nombre}}, {{degust.origen}}, {{degust.tipoComida}}
         </option>
     </select>
