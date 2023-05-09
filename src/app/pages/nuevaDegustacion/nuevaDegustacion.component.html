@@ -8,26 +8,23 @@
 
     <!--Buscador de local-->
     <div class="input-group mt-4" style="width: 70%;" role="search">
-        <input class="form-control" type="search" placeholder="Buscar locales existentes" aria-label="Buscar">
+        <input [(ngModel)]="searchInputLocales" class="form-control" type="search"
+            placeholder="Buscar locales existentes" aria-label="Buscar">
         <button class="btn btn-secondary" id="basic-addon2">
             <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
         </button>
     </div>
 
     <!--Lista de resultados-->
-    <div class="container mt-4"
-        style="height: 200px; overflow-y: scroll; border-radius: 2px; border: 1px solid #cfd1c9;">
-        una<br />
-        lista<br />
-        chulisima<br />
-        de<br />
-        resultados<br />
-        con<br />
-        ngFor<br />
-        test<br />
-        test<br />
-        test<br />
-    </div>
+    <!--div class="container mt-4"
+        style="height: 200px; overflow-y: scroll; border-radius: 2px; border: 1px solid #cfd1c9;"-->
+    <select [(ngModel)]="this.selectLocales" (change)="updateDegusts();"
+        class="form-select form-select-lg mb-3 mt-3" multiple aria-label="multiple select example">
+        <option [value]="local" *ngFor="let local of restaurantes  | searchLocal: searchInputLocales">
+            {{local.nombre}}, {{local.direccion}}
+        </option>
+    </select>
+    <!--/div-->
 
     <!--Campos de nombre y dirección del establecimiento-->
     <div class="row mt-5">
@@ -36,7 +33,7 @@
         <div class="col-sm">
             <div class="form-group my-3">
                 <label for="nombre">Nombre: </label>
-                <input type="text" class="form-control" id="nombreLocal" name="nombreLocal" aria-describedby="emailHelp"
+                <input type="text" (input)="forgetLocal()" class="form-control" id="nombreLocal" name="nombreLocal" aria-describedby="emailHelp"
                     placeholder="Introduce el nombre del local" [(ngModel)]="nombreLocal">
             </div>
         </div>
@@ -68,19 +65,13 @@
     </div>
 
     <!--Lista de resultados-->
-    <div class="container mt-4"
-        style="height: 200px; overflow-y: scroll; border-radius: 2px; border: 1px solid #cfd1c9;">
-        una<br />
-        lista<br />
-        chulisima<br />
-        de<br />
-        resultados<br />
-        con<br />
-        ngFor<br />
-        test<br />
-        test<br />
-        test<br />
-    </div>
+    <select [(ngModel)]="this.selectDegust" (change)="rellenarDatos()"
+        class="form-select form-select-lg mb-3 mt-3" multiple aria-label="multiple select example">
+        <option [value]="degust"
+            *ngFor="let degust of degustaciones | searchDegust: searchInputDegusts : searchMethod">
+            {{degust.nombre}}, {{degust.origen}}, {{degust.tipoComida}}
+        </option>
+    </select>
 
     <!--Campos nombre y descripción de la tapa-->
     <div class="row mt-5">
@@ -89,15 +80,15 @@
             <!--Nombre del plato-->
             <div class="form-group my-3">
                 <label for="nombre">Nombre: </label>
-                <input type="text" class="form-control" id="nombreTapa" name="nombreTapa"
-                    aria-describedby="emailHelp" placeholder="Introduce el nombre del plato" [(ngModel)]="nombreTapa">
+                <input type="text" class="form-control" id="nombreTapa" name="nombreTapa" aria-describedby="emailHelp"
+                    placeholder="Introduce el nombre del plato" [(ngModel)]="nombreTapa">
             </div>
 
             <!--Descripción-->
-            <div class="form-group my-3" >
+            <div class="form-group my-3">
                 <label for="descripcion">Descripción: </label>
-                <textarea rows="5" cols="60" class="form-control" style="height: 100px;" id="descripcion" name="descripcion"
-                    aria-describedby="emailHelp" placeholder="Introduce una descripción del plato"
+                <textarea rows="5" cols="60" class="form-control" style="height: 100px;" id="descripcion"
+                    name="descripcion" aria-describedby="emailHelp" placeholder="Introduce una descripción del plato"
                     [(ngModel)]="descripcion"></textarea>
             </div>
         </div>
@@ -138,7 +129,8 @@
             <div class="form-group my-3">
                 <label for="pais">Origen del plato: </label>
                 <input type="text" class="form-control" id="origen" name="origen" aria-describedby="emailHelp"
-                    placeholder="Introduce el país o región de procedencia del plato (p.e. Italia, México, España...)" [(ngModel)]="origen">
+                    placeholder="Introduce el país o región de procedencia del plato (p.e. Italia, México, España...)"
+                    [(ngModel)]="origen">
             </div>
         </div>
 
@@ -146,8 +138,8 @@
         <div class="col-sm">
             <div class="form-group my-3">
                 <label for="localizacion">Tipo de comida: </label>
-                <input type="text" class="form-control" id="tipoComida" name="tipoComida"
-                    aria-describedby="emailHelp" placeholder="Introduce el tipo de comida (p.e. entrante, postre...)" [(ngModel)]="tipoComida">
+                <input type="text" class="form-control" id="tipoComida" name="tipoComida" aria-describedby="emailHelp"
+                    placeholder="Introduce el tipo de comida (p.e. entrante, postre...)" [(ngModel)]="tipoComida">
             </div>
         </div>
     </div>
@@ -155,8 +147,9 @@
     <div class="col-sm">
         <div class="form-group my-3">
             <label for="localizacion">Calificadores de gusto: </label>
-            <input type="text" class="form-control" id="calificadores" name="calificadores"
-                aria-describedby="emailHelp" placeholder="Introduce características del plato (p.e. dulce, salado, picante...)" [(ngModel)]="calificadores">
+            <input type="text" class="form-control" id="calificadores" name="calificadores" aria-describedby="emailHelp"
+                placeholder="Introduce características del plato (p.e. dulce, salado, picante...)"
+                [(ngModel)]="calificadores">
         </div>
     </div>
 
@@ -186,15 +179,15 @@
             </div>
         </div>
 
-        
+
     </div>
 
     <div class="form-check form-switch mt-4">
-        <input class="form-check-input lead" type="checkbox" role="switch" [(ngModel)]="favorito" id="flexCheckDefault" >
+        <input class="form-check-input lead" type="checkbox" role="switch" [(ngModel)]="favorito" id="flexCheckDefault">
         <label class="form-check-label lead" for="flexCheckDefault">
-          Marca esta opción para guardar el plato como favorito <fa-icon [icon]="['fas', 'heart']"></fa-icon>
+            Marca esta opción para guardar el plato como favorito <fa-icon [icon]="['fas', 'heart']"></fa-icon>
         </label>
-      </div>
+    </div>
 
 </div>
 <div class="container-fluid text-center mt-5">

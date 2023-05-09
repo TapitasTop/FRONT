@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AppService } from 'src/app/services/app.service';
 import { Router } from '@angular/router';
+import { DegustSearchMethod } from 'src/app/degust-search-method';
 
 @Component({
   selector: 'app-nuevaDegustacion',
@@ -33,10 +34,53 @@ export class NuevaDegustacionComponent implements OnInit {
   preview = '';
   base64String = ''
 
+  //Lista restaurantes
+  restaurantes: { direccion: string, nombre: string }[]
+  localElegido: { direccion: string, nombre: string }
+
+  degustaciones: {
+    nombre: string,
+    origen: string,
+    decripcion: string,
+    foto: string,
+    media: number,
+    tipoComida: string,
+    fechaAlta: string,
+    calificadorGusto: string
+  }[] = []
+
+  degustElegido: {
+    nombre: string,
+    origen: string,
+    descripcion: string,
+    foto: string,
+    media: number,
+    tipoComida: string,
+    fechaAlta: string,
+    calificadorGusto: string
+  }
+  selectLocales = []
+  selectDegust = []
+
+  searchInputLocales = ""
+  searchInputDegusts = ""
+  searchMethod: DegustSearchMethod = DegustSearchMethod.nombre
+
   constructor(private httpService: AppService, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit(): void {
-    const token = { token: this.cookieService.get('Cookie')};
+    const token = { token: this.cookieService.get('Cookie') };
+
+    this.httpService.getLocales().subscribe({
+      next: (response) => {
+        console.log(response)
+        this.restaurantes = response
+      },
+      error: (error) => {
+        console.log(error)
+      }
+
+    })
   }
 
   //Funcion para subir una imagen
@@ -70,7 +114,7 @@ export class NuevaDegustacionComponent implements OnInit {
     }
   }
 
-  guardarDegustacion(){
+  guardarDegustacion() {
     let body = {
       calificacion: this.rating,
       degustacion: {
@@ -103,4 +147,64 @@ export class NuevaDegustacionComponent implements OnInit {
       },
     })
   }
+
+  updateDegusts() {
+    this.degustaciones = []
+    this.degustElegido = {
+      nombre: "",
+      origen: "",
+      descripcion: "",
+      foto: "",
+      media: -1,
+      tipoComida: "",
+      fechaAlta: "",
+      calificadorGusto: "",
+    }
+    this.localElegido = this.selectLocales[0]
+
+    if (this.localElegido.nombre) {
+      this.nombreLocal = this.localElegido.nombre
+      this.direccion = this.localElegido.direccion
+      this.httpService.getDegustacionesLocal(this.localElegido.nombre, this.localElegido.direccion).subscribe(
+        (degusts) => {
+          this.degustaciones = degusts
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+    }
+
+  }
+
+  forgetLocal() {
+    this.localElegido = { nombre: "", direccion: "" }
+    this.degustaciones = []
+    this.degustElegido = {
+      nombre: "",
+      origen: "",
+      descripcion: "",
+      foto: "",
+      media: -1,
+      tipoComida: "",
+      fechaAlta: "",
+      calificadorGusto: "",
+    }
+  }
+
+
+  rellenarDatos() {
+    this.degustElegido = this.selectDegust[0];
+    if (this.degustElegido.nombre) {
+      this.nombreTapa = this.degustElegido.nombre
+      this.calificadores = this.degustElegido.calificadorGusto
+      this.descripcion = this.degustElegido.descripcion
+      this.foto = this.degustElegido.foto
+      this.origen = this.degustElegido.origen
+      this.tipoComida = this.degustElegido.tipoComida
+      this.preview = "data:image/jpg;base64," + this.foto;
+    }
+  }
+
+
 }

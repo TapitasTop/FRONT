@@ -85,7 +85,7 @@ export class AppService {
 
   //Devuelve una lista las degustaciones por local
   getDegustacionesLocal(nombre: string, direccion: string) {
-    return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustaciones?direccion=${direccion}&nombre=${nombre}`)
+    return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustacionesLocal?direccion=${direccion}&nombre=${nombre}`)
   }
 
   //Devuelve una lista de las degustaciones ordenadas por media
