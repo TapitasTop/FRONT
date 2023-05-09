@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class AppService {
   private baseUrl = 'http://jaime.hopto.org:8080';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   upload(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
@@ -77,4 +77,25 @@ export class AppService {
   aniadirDegustacion(body: any){
     return this.http.post<any>(`${this.baseUrl}/v1/degustacion`, body)
   }
+
+  //Devuelve una lista con todas las degustaciones
+  getDegustaciones() {
+    return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustaciones`)
+  }
+
+  //Devuelve una lista las degustaciones por local
+  getDegustacionesLocal(nombre: string, direccion: string) {
+    return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustaciones?direccion=${direccion}&nombre=${nombre}`)
+  }
+
+  //Devuelve una lista de las degustaciones ordenadas por media
+  getDegustacionesOrdenadas() {
+    return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustacionesOrdenadas`)
+  }
+
+  //Devuelve una lista con todos los locales
+  getLocales(){
+    return this.http.get<any>(`${this.baseUrl}/v1/local/listaLocales`)
+  }
+
 }
