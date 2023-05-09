@@ -27,9 +27,44 @@
 
       <div class="p-5 my-4 bg-light rounded-3">
         <div class="container-fluid py-5">
-          <h2 class="display-5 fw-bold">Mis platos favoritos:</h2>
-          <p class="col-md-8 fs-4">Platos favoritos</p>
-          <button class="btn btn-primary btn-lg" type="button" href="/platos">Ver todos los platos</button>
+          <h2>Mis platos favoritos</h2><br>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                    <img src="data:image/jpg;base64,{{fotoDegustacion[0]}}" id="icon" alt="Degustacion1 Icon" style="width: 200px;" style="height: 200px;">
+                    <h4><p class="mt-5">{{nombreDegustacion[0]}}</p></h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                    <img src="data:image/jpg;base64,{{fotoDegustacion[1]}}" id="icon" alt="Degustacion2 Icon" style="width: 200px;" style="height: 200px;">
+                    <h4><p class="mt-5">{{nombreDegustacion[1]}}</p></h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <ng-container *ngFor="let dato of fotoDegustacion">
+                    <img src="data:image/jpg;base64,{{dato}}" id="icon" alt="Degustacion3 Icon" style="width: 200px;" style="height: 200px;">
+                    <h4><p class="mt-5">{{nombreDegustacion[3]}}</p></h4>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Ver todos los platos favoritos</button>
+          <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+              <div class="card card-body">
+                Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

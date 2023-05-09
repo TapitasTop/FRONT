@@ -58,6 +58,14 @@ export class AppService {
     );
   }
 
+  //Llamada para devolver la lista de degustaciones favoritas ordenadas
+  getListaDegFavsUsuarioOrdenadas(token: any): Observable<any> {
+    return this.http.post(
+      'http://jaime.hopto.org:8080/v1/user/listaDegFavsUsuarioOrdenadas',
+      token
+    );
+  }
+
   //Comprueba que el formato del correo introducido es correcto
   getFormatoCorreo(correo: string) {
     return this.http.get<{ cadena: string }>(
