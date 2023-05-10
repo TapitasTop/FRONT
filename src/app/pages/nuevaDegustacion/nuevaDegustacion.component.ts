@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppService } from 'src/app/services/app.service';
 import { ROUTES, Router } from '@angular/router';
 import { DegustSearchMethod } from 'src/app/degust-search-method';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-nuevaDegustacion',
@@ -150,15 +150,19 @@ export class NuevaDegustacionComponent implements OnInit {
     console.log(body)
     this.httpService.aniadirDegustacion(body).subscribe({
       next: (response) => {
-        this.router.navigate(['home'])
+        this.router.navigate(['/home'])
 
       },
       error: (error: HttpErrorResponse) => {
+        console.log("ERROR")
+        console.log(error)
         this.isDisabled = false
-        if (typeof(error.error)=='string')
-          this.error = error.error
-        else
-          this.error = error.error.error
+        if (error.status == 200) {
+          this.router.navigate(['/home'])
+        } else if (typeof (error.error) == 'string')
+            this.error = error.error
+          else
+            this.error = error.error.error
       },
     })
   }
