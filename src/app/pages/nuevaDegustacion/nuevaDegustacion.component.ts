@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AppService } from 'src/app/services/app.service';
-import { Router } from '@angular/router';
+import { ROUTES, Router } from '@angular/router';
 import { DegustSearchMethod } from 'src/app/degust-search-method';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-nuevaDegustacion',
@@ -67,8 +68,12 @@ export class NuevaDegustacionComponent implements OnInit {
   searchMethod: DegustSearchMethod = DegustSearchMethod.nombre
 
   metodos = [DegustSearchMethod.nombre, DegustSearchMethod.origen, DegustSearchMethod.descripcion, DegustSearchMethod.tipoComida, DegustSearchMethod.calificadorGusto]
-  method=0
-  
+  method = 0
+
+  isDisabled = false
+
+  error = ""
+
   constructor(private httpService: AppService, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit(): void {
@@ -119,13 +124,15 @@ export class NuevaDegustacionComponent implements OnInit {
   }
 
   guardarDegustacion() {
+    this.isDisabled = true
+    this.error = ""
     let body = {
       calificacion: this.rating,
       degustacion: {
         calificadorGusto: this.calificadores,
         descripcion: this.descripcion,
         fechaAlta: "",
-        foto: this.base64String,
+        foto: this.foto,
         media: 0,
         nombre: this.nombreTapa,
         origen: this.origen,
@@ -141,13 +148,17 @@ export class NuevaDegustacionComponent implements OnInit {
       }
     }
     console.log(body)
-
     this.httpService.aniadirDegustacion(body).subscribe({
       next: (response) => {
-        console.log(response)
+        this.router.navigate(['home'])
+
       },
-      error: (error) => {
-        console.log(error);
+      error: (error: HttpErrorResponse) => {
+        this.isDisabled = false
+        if (typeof(error.error)=='string')
+          this.error = error.error
+        else
+          this.error = error.error.error
       },
     })
   }
