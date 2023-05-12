@@ -6,6 +6,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
+import { bottom } from '@popperjs/core';
 
 
 @Component({
@@ -36,10 +37,16 @@ export class HomeComponent implements OnInit {
     plugins: {
       legend: {
         display: true,
+        position: bottom
       },
       datalabels: {
         anchor: 'end',
         align: 'end'
+      }
+    },
+    layout: {
+      padding: {
+        top: 30
       }
     }
   };
