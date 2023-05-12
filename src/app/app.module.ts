@@ -18,7 +18,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NuevaDegustacionComponent } from './pages/nuevaDegustacion/nuevaDegustacion.component';
+import { SearchDegustPipe } from './search-degust.pipe';
+import { SearchLocalPipe } from './search-local.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NuevaDegustacionComponent } from './pages/nuevaDegustacion/nuevaDegusta
     RegistroComponent,
     PerfilComponent,
     NavbarComponent,
-    NuevaDegustacionComponent
+    SearchDegustPipe,
+    SearchLocalPipe
   ],
   imports: [
     BrowserModule, 
