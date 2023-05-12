@@ -72,6 +72,11 @@ export class AppService {
     return this.http.put<any>(`${this.baseUrl}/v1/user/perfil/modificarDatos`, body)
   }
 
+  //Añadir una nueva degustación con un local asociado y una valoración
+  aniadirDegustacion(body: any){
+    return this.http.post<any>(`${this.baseUrl}/v1/degustacion`, body)
+  }
+
   //Devuelve una lista con todas las degustaciones
   getDegustaciones() {
     return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustaciones`)
@@ -90,6 +95,15 @@ export class AppService {
   //Devuelve una lista con todos los locales
   getLocales(){
     return this.http.get<any>(`${this.baseUrl}/v1/local/listaLocales`)
+  }
+
+  //Obtiene las estadisticas de los últimos siete días (nº de degustaciones y de locales) por token de usuario
+  getUltimasEstadisticas(body: any){
+    return this.http.post<any>(`${this.baseUrl}/v1/user/perfil/estadisticasDias`, body)
+  }
+  //Obtiene las estadisticas(nº de degustaciones y de locales) por token de usuario
+  getEstadisticas(body: any){
+    return this.http.post<any>(`${this.baseUrl}/v1/user/perfil/estadisticas`, body)
   }
 
 }
