@@ -11,6 +11,10 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class ForgotPasswordComponent implements OnInit {
   email: "";
+  enviado = false;
+  procesando = false;
+  error = false;
+  
 
   constructor(private httpService: AppService, private router: Router, private userService: AppService, private cookieService: CookieService) {}
 
@@ -18,11 +22,14 @@ export class ForgotPasswordComponent implements OnInit {
 
   submit() {
     const email = { email: this.email };
+    this.procesando = true
     this.userService.forgotPassword(email).subscribe(
       (data) => {
-        this.router.navigateByUrl('/login');
+        this.enviado = true 
       },
       (error: any) => {
+        this.error =true
+        this.procesando = false
         console.log(error);
       }
     );
