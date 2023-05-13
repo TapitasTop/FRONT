@@ -5,7 +5,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { NgChartsModule } from 'ng2-charts';
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,7 @@ import { SearchDegustPipe } from './search-degust.pipe';
 import { SearchLocalPipe } from './search-local.pipe';
 import { DegustacionesValoradasComponent } from './pages/degustaciones-valoradas/degustaciones-valoradas.component';
 import { MisDegustacionesComponent } from './pages/mis-degustaciones/mis-degustaciones.component';
+import { NuevaDegustacionComponent } from './pages/nuevaDegustacion/nuevaDegustacion.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MisDegustacionesComponent } from './pages/mis-degustaciones/mis-degusta
     PerfilComponent,
     NavbarComponent,
     SearchDegustPipe,
-    SearchLocalPipe
+    SearchLocalPipe, 
+    NuevaDegustacionComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { MisDegustacionesComponent } from './pages/mis-degustaciones/mis-degusta
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    NgChartsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
