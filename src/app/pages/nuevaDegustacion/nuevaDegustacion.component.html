@@ -1,4 +1,15 @@
 <app-navbar></app-navbar>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </symbol>
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </symbol>
+  </svg>
 
 <!--Apartado local-->
 <div class="mx-5 mt-5 mb-4 p-5 bg-white rounded">
@@ -8,26 +19,23 @@
 
     <!--Buscador de local-->
     <div class="input-group mt-4" style="width: 70%;" role="search">
-        <input class="form-control" type="search" placeholder="Buscar locales existentes" aria-label="Buscar">
+        <input [(ngModel)]="searchInputLocales" class="form-control" type="search"
+            placeholder="Buscar locales existentes" aria-label="Buscar">
         <button class="btn btn-secondary" id="basic-addon2">
             <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
         </button>
     </div>
 
     <!--Lista de resultados-->
-    <div class="container mt-4"
-        style="height: 200px; overflow-y: scroll; border-radius: 2px; border: 1px solid #cfd1c9;">
-        una<br />
-        lista<br />
-        chulisima<br />
-        de<br />
-        resultados<br />
-        con<br />
-        ngFor<br />
-        test<br />
-        test<br />
-        test<br />
-    </div>
+    <!--div class="container mt-4"
+        style="height: 200px; overflow-y: scroll; border-radius: 2px; border: 1px solid #cfd1c9;"-->
+    <select [(ngModel)]="this.selectLocales" (change)="updateDegusts();" class="form-select form-select-lg mb-3 mt-3"
+        multiple aria-label="multiple select example">
+        <option [value]="local" *ngFor="let local of restaurantes  | searchLocal: searchInputLocales">
+            {{local.nombre}}, {{local.direccion}}
+        </option>
+    </select>
+    <!--/div-->
 
     <!--Campos de nombre y dirección del establecimiento-->
     <div class="row mt-5">
@@ -36,8 +44,8 @@
         <div class="col-sm">
             <div class="form-group my-3">
                 <label for="nombre">Nombre: </label>
-                <input type="text" class="form-control" id="nombreLocal" name="nombreLocal" aria-describedby="emailHelp"
-                    placeholder="Introduce el nombre del local" [(ngModel)]="nombreLocal">
+                <input type="text" (input)="forgetLocal()" class="form-control" id="nombreLocal" name="nombreLocal"
+                    aria-describedby="emailHelp" placeholder="Introduce el nombre del local" [(ngModel)]="nombreLocal">
             </div>
         </div>
 
@@ -60,27 +68,33 @@
         registrados del local. </p>
 
     <!--Buscador de tapas-->
-    <div class="input-group mt-4" style="width: 70%;" role="search">
-        <input class="form-control" type="search" placeholder="Buscar tapas existentes en el local" aria-label="Buscar">
-        <button class="btn btn-secondary" id="basic-addon2">
-            <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
-        </button>
+    <div class="row">
+        <div class="input-group mt-4" style="width: 40%;" role="search">
+            <input [(ngModel)]="searchInputDegusts" class="form-control" type="search"
+                placeholder="Buscar tapas existentes en el local" aria-label="Buscar">
+            <button class="btn btn-secondary" id="basic-addon2">
+                <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
+            </button>
+        </div>
+        <div class="input-group mt-4" style="width: 40%;" role="search">
+            <span class="input-group-text">Método de búsqueda</span>
+            <select [(ngModel)]="this.method" (change)="this.searchMethod=metodos[method]" class="form-select"
+                aria-label="Default select example">
+                <option selected [value]="0">Nombre</option>
+                <option [value]="1">Origen</option>
+                <option [value]="2">Descripción</option>
+                <option [value]="3">Tipo de comida</option>
+                <option [value]="4">Calificador de gusto</option>
+            </select>
+        </div>
     </div>
-
     <!--Lista de resultados-->
-    <div class="container mt-4"
-        style="height: 200px; overflow-y: scroll; border-radius: 2px; border: 1px solid #cfd1c9;">
-        una<br />
-        lista<br />
-        chulisima<br />
-        de<br />
-        resultados<br />
-        con<br />
-        ngFor<br />
-        test<br />
-        test<br />
-        test<br />
-    </div>
+    <select [(ngModel)]="this.selectDegust" (change)="rellenarDatos()" class="form-select form-select-lg mb-3 mt-3"
+        multiple aria-label="multiple select example">
+        <option [value]="degust" *ngFor="let degust of degustaciones | searchDegust: searchInputDegusts: searchMethod">
+            {{degust.nombre}}, {{degust.origen}}, {{degust.tipoComida}}
+        </option>
+    </select>
 
     <!--Campos nombre y descripción de la tapa-->
     <div class="row mt-5">
@@ -89,15 +103,15 @@
             <!--Nombre del plato-->
             <div class="form-group my-3">
                 <label for="nombre">Nombre: </label>
-                <input type="text" class="form-control" id="nombreTapa" name="nombreTapa"
-                    aria-describedby="emailHelp" placeholder="Introduce el nombre del plato" [(ngModel)]="nombreTapa">
+                <input type="text" class="form-control" id="nombreTapa" name="nombreTapa" aria-describedby="emailHelp"
+                    placeholder="Introduce el nombre del plato" [(ngModel)]="nombreTapa">
             </div>
 
             <!--Descripción-->
-            <div class="form-group my-3" >
+            <div class="form-group my-3">
                 <label for="descripcion">Descripción: </label>
-                <textarea rows="5" cols="60" class="form-control" style="height: 100px;" id="descripcion" name="descripcion"
-                    aria-describedby="emailHelp" placeholder="Introduce una descripción del plato"
+                <textarea rows="5" cols="60" class="form-control" style="height: 100px;" id="descripcion"
+                    name="descripcion" aria-describedby="emailHelp" placeholder="Introduce una descripción del plato"
                     [(ngModel)]="descripcion"></textarea>
             </div>
         </div>
@@ -138,7 +152,8 @@
             <div class="form-group my-3">
                 <label for="pais">Origen del plato: </label>
                 <input type="text" class="form-control" id="origen" name="origen" aria-describedby="emailHelp"
-                    placeholder="Introduce el país o región de procedencia del plato (p.e. Italia, México, España...)" [(ngModel)]="origen">
+                    placeholder="Introduce el país o región de procedencia del plato (p.e. Italia, México, España...)"
+                    [(ngModel)]="origen">
             </div>
         </div>
 
@@ -146,8 +161,8 @@
         <div class="col-sm">
             <div class="form-group my-3">
                 <label for="localizacion">Tipo de comida: </label>
-                <input type="text" class="form-control" id="tipoComida" name="tipoComida"
-                    aria-describedby="emailHelp" placeholder="Introduce el tipo de comida (p.e. entrante, postre...)" [(ngModel)]="tipoComida">
+                <input type="text" class="form-control" id="tipoComida" name="tipoComida" aria-describedby="emailHelp"
+                    placeholder="Introduce el tipo de comida (p.e. entrante, postre...)" [(ngModel)]="tipoComida">
             </div>
         </div>
     </div>
@@ -155,8 +170,9 @@
     <div class="col-sm">
         <div class="form-group my-3">
             <label for="localizacion">Calificadores de gusto: </label>
-            <input type="text" class="form-control" id="calificadores" name="calificadores"
-                aria-describedby="emailHelp" placeholder="Introduce características del plato (p.e. dulce, salado, picante...)" [(ngModel)]="calificadores">
+            <input type="text" class="form-control" id="calificadores" name="calificadores" aria-describedby="emailHelp"
+                placeholder="Introduce características del plato (p.e. dulce, salado, picante...)"
+                [(ngModel)]="calificadores">
         </div>
     </div>
 
@@ -186,23 +202,33 @@
             </div>
         </div>
 
-        
     </div>
 
     <div class="form-check form-switch mt-4">
-        <input class="form-check-input lead" type="checkbox" role="switch" [(ngModel)]="favorito" id="flexCheckDefault" >
+        <input class="form-check-input lead" type="checkbox" role="switch" [(ngModel)]="favorito" id="flexCheckDefault">
         <label class="form-check-label lead" for="flexCheckDefault">
-          Marca esta opción para guardar el plato como favorito <fa-icon [icon]="['fas', 'heart']"></fa-icon>
+            Marca esta opción para guardar el plato como favorito <fa-icon [icon]="['fas', 'heart']"></fa-icon>
         </label>
-      </div>
+    </div>
 
 </div>
 <div class="container-fluid text-center mt-5">
-    <button type="button" class="btn btn-success mx-2 btn-lg" (click)="guardarDegustacion()">
+    <button type="button" class="btn btn-success mx-2 btn-lg" [disabled]="this.isDisabled"
+        (click)="guardarDegustacion()">
         Guardar cambios
     </button>
 
-    <button type="button" class="btn btn-danger mx-2 btn-lg">
+    <button type="button" class="btn btn-danger mx-2 btn-lg" routerLink="/home">
         Cancelar
     </button>
+
+    <div *ngIf="error" class="alert alert-danger d-flex align-items-center alert-dismissible fade show mt-3" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+            <use xlink:href="#exclamation-triangle-fill" />
+        </svg>
+        <div><strong>{{error}}</strong></div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="error=''">
+        </button>
+    </div>
+
 </div>

@@ -9,7 +9,7 @@ export class SearchDegustPipe implements PipeTransform {
   transform(degustacion: {
     nombre: string,
     origen: string,
-    decripcion: string,
+    descripcion: string,
     foto: string,
     media: number,
     tipoComida: string,
@@ -18,7 +18,7 @@ export class SearchDegustPipe implements PipeTransform {
   }[], searchInput: string, searchMethod: DegustSearchMethod): {
     nombre: string,
     origen: string,
-    decripcion: string,
+    descripcion: string,
     foto: string,
     media: number,
     tipoComida: string,
@@ -37,7 +37,7 @@ export class SearchDegustPipe implements PipeTransform {
       case DegustSearchMethod.calificadorGusto:
         return degustacion.filter(x => x.calificadorGusto.toLowerCase().includes(searchInput))
       case DegustSearchMethod.descripcion:
-        return degustacion.filter(x => x.decripcion.toLowerCase().includes(searchInput))
+        return degustacion.filter(x => x.descripcion.toLowerCase().includes(searchInput))
       case DegustSearchMethod.tipoComida:
         return degustacion.filter(x => x.tipoComida.toLowerCase().includes(searchInput))
 
