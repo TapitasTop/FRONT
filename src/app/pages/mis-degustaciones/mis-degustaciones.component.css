@@ -1,0 +1,87 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading h1 {
+    font-size: 3rem;
+}
+
+.add-degustacion {
+    position: fixed;
+    bottom: 65px;
+    right: 25px;
+}
+
+.add-degustacion button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.add-degustacion button:hover {
+    cursor: pointer;
+    background-color: #dc3545;
+}
+
+.add-degustacion .plus {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.deg {
+    min-width: 100%;
+}
+
+.degustacion {
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    min-width: 20%;
+}
+
+.foto-degustacion {
+    max-width: 40%;
+}
+
+.foto-degustacion img {
+    max-width: 100%;
+    height: auto;
+}
+
+.informacion-degustacion {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.datos-degustacion {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.datos-columna {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 5%;
+    min-width: 45%;
+    max-width: 45%;
+}
+
+h3 {
+    margin-bottom: 10px;
+}

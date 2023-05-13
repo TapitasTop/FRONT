@@ -1,0 +1,16 @@
+.navbar {
+    font-size: 1.2rem;
+}
+
+.navbar-nav .active>.nav-link {
+    border-radius: 20px;
+    color: black !important;
+    background-color: #90d7e2;
+}
+
+
+.navbar-nav .active>.nav-link:hover,
+.navbar-nav .active>.nav-link:focus {
+    background-color: #78c5d6;
+    color: #000;
+}

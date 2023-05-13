@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private cookieService: CookieService,
     private httpService: AppService,
-    private router: Router) { }
+    public router: Router) { }
 
   ngOnInit(): void {
   }

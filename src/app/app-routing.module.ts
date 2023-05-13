@@ -6,6 +6,8 @@ import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
 import { ForgotPasswordComponent } from './pages/forgotPassword/forgotPassword.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { DegustacionesValoradasComponent } from './pages/degustaciones-valoradas/degustaciones-valoradas.component';
+import { MisDegustacionesComponent } from './pages/mis-degustaciones/mis-degustaciones.component';
 import { NuevaDegustacionComponent } from './pages/nuevaDegustacion/nuevaDegustacion.component';
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'forgotPassword', component: ForgotPasswordComponent, pathMatch: 'full' },
   { path: 'registro', component: RegistroComponent },
   { path: 'perfil', component: PerfilComponent },
+  { path: 'degustaciones-valoradas', component: DegustacionesValoradasComponent },
+  { path: 'mis-degustaciones', component: MisDegustacionesComponent },
   { path: 'nuevaDegustacion', component: NuevaDegustacionComponent }
 ];
 

@@ -1,0 +1,57 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading h1 {
+    font-size: 3rem;
+}
+
+.degustacion {
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    min-width: 20%;
+}
+
+.deg {
+    min-width: 100%;
+}
+
+.foto-degustacion {
+    max-width: 40%;
+}
+
+.foto-degustacion img {
+    max-width: 100%;
+    height: auto;
+}
+
+.informacion-degustacion {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.datos-degustacion {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.datos-columna {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 20px;
+    min-width: 45%;
+    max-width: 45%;
+}
+
+h3 {
+    margin-bottom: 10px;
+}

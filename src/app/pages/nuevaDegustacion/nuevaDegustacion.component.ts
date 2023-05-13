@@ -225,5 +225,4 @@ export class NuevaDegustacionComponent implements OnInit {
     }
   }
 
-
 }
