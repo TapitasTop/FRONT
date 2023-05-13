@@ -23,7 +23,6 @@ import { SearchDegustPipe } from './search-degust.pipe';
 import { SearchLocalPipe } from './search-local.pipe';
 import { DegustacionesValoradasComponent } from './pages/degustaciones-valoradas/degustaciones-valoradas.component';
 import { MisDegustacionesComponent } from './pages/mis-degustaciones/mis-degustaciones.component';
-import { NuevaDegustacionComponent } from './pages/nuevaDegustacion/nuevaDegustacion.component';
 
 @NgModule({
   declarations: [
