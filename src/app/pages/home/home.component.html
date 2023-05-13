@@ -8,7 +8,7 @@
         <div class="col-md-6">
           <div class="h-100 p-5 bg-light border rounded-3">
             <h2>Perfil</h2>
-            <img src="data:image/jpg;base64,{{foto}}" id="icon" alt="User Icon" style="width: 200px;"><br>
+            <img src="data:image/jpg;base64,{{fotoUsuario}}" id="icon" alt="User Icon" style="width: 200px;"><br>
             <h4>{{nombre}}</h4>
             <h5>{{nombreUsuario}}</h5>
             <button class="btn btn-outline-secondary" type="button" routerLink="/perfil">Ir al perfil</button>
@@ -27,9 +27,68 @@
 
       <div class="p-5 my-4 bg-light rounded-3">
         <div class="container-fluid py-5">
-          <h2 class="display-5 fw-bold">Mis platos favoritos:</h2>
-          <p class="col-md-8 fs-4">Platos favoritos</p>
-          <button class="btn btn-primary btn-lg" type="button" href="/platos">Ver todos los platos</button>
+          <h2>Mis platos favoritos</h2><br>
+          <div class="row">
+            <ng-container *ngIf="fotoDegustacion.length > 0">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                    <img src="data:image/jpg;base64,{{fotoDegustacion[0]}}" id="icon" alt="Degustacion1 Icon" width="250" height="250">
+                    <h4><p class="mt-5">{{nombreDegustacion[0]}}</p></h4>
+                </div>
+              </div>
+            </div>
+            </ng-container>
+            <ng-container *ngIf="fotoDegustacion.length > 1">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                    <img src="data:image/jpg;base64,{{fotoDegustacion[1]}}" id="icon" alt="Degustacion2 Icon" width="250" height="250">
+                    <h4><p class="mt-5">{{nombreDegustacion[1]}}</p></h4>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="fotoDegustacion.length > 2">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                    <img src="data:image/jpg;base64,{{fotoDegustacion[2]}}" id="icon" alt="Degustacion3 Icon" width="250" height="250">
+                    <h4><p class="mt-5">{{nombreDegustacion[2]}}</p></h4>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          </div>
+          <br>
+
+          <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Ver todos los platos favoritos</button>
+          
+          <div class="col">
+            <br>
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+              <ng-container *ngFor="let dato of degustacionG">
+             
+                <div class="col-md-10 mx-auto text-center">
+                  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <strong class="d-inline-block mb-2 text-success">{{dato.nombre}}</strong>
+                        <h3 class="mb-0">{{dato.tipoComida}}</h3>
+                          <div class="mb-1 text-muted">{{dato.origen}}</div>
+                            <p class="mb-auto"><b>Fecha de alta:</b> {{dato.fechaAlta}}</p>
+                            <p class="mb-auto"><b>Descripción:</b> {{dato.descripcion}}</p>
+                            <p class="mb-auto"><b>Calificación:</b> {{dato.calificadorGusto}}</p>
+                            <p class="mb-auto"><b>Media:</b> {{dato.media}}</p>
+                          </div>
+                        <div class="col-auto d-none d-lg-block">
+                          <img src="data:image/jpg;base64,{{dato.foto}}" id="icon" alt="Degustacion2 Icon" width="225" height="225">
+                    </div>
+                  </div>
+                </div>
+
+              </ng-container>
+            </div>
+          </div>
         </div>
       </div>
     </div>
