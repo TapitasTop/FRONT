@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d98bc;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/home">
+    <a class="navbar-brand" routerLink="/home">
       <img src="./assets/images/icono.png" id="icon" alt="User Icon" width="45" height="45">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -10,17 +10,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" [ngClass]="{'active': router.url === '/home'}">
-          <a class="nav-link" aria-current="page" href="/home" style="color: white;">Inicio</a>
+          <a class="nav-link" aria-current="page" routerLink="/home" style="color: white;">Inicio</a>
         </li>
         <li class="nav-item" [ngClass]="{'active': router.url === '/perfil'}">
-          <a class="nav-link" href="/perfil" style="color: white;">Perfil</a>
+          <a class="nav-link" routerLink="/perfil" style="color: white;">Perfil</a>
         </li>
         <li class="nav-item" [ngClass]="{'active': router.url === '/mis-degustaciones'}">
-          <a class="nav-link" href="/mis-degustaciones" style="color: white;">Mis degustaciones</a>
+          <a class="nav-link" routerLink="/mis-degustaciones" style="color: white;">Mis degustaciones</a>
         </li>
 
         <li class="nav-item" [ngClass]="{'active': router.url === '/degustaciones-valoradas'}">
-          <a class="nav-link" href="/degustaciones-valoradas" style="color: white;">Degustaciones más valoradas</a>
+          <a class="nav-link" routerLink="/degustaciones-valoradas" style="color: white;">Degustaciones más valoradas</a>
         </li>
       </ul>
 
