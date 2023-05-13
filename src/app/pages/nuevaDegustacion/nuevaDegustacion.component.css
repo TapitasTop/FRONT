@@ -1,0 +1,49 @@
+.preview {
+    width: 130px;
+    height: 130px;
+    background-color: #868d9b;
+    background: url("https://cdn.pixabay.com/photo/2017/03/24/06/49/camera-2170377_960_720.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #ffffff;
+    border-radius: 130px;
+    
+  }
+
+  
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    }
+    
+    
+    .rating > input{ display:none;}
+    
+    .rating > label {
+    position: relative;
+    width: 1.1em;
+    font-size: 5vw;
+    color: #FFD700;
+    cursor: pointer;
+    }
+    
+    .rating > label::before{
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+    }
+    
+    .rating > label:hover:before,
+    .rating > label:hover ~ label:before {
+    opacity: 1 !important;
+    }
+    
+    .rating > input:checked ~ label:before{
+    opacity:1;
+    }
+    
+    .rating:hover > input:checked ~ label:before{ opacity: 0.4; }
+    
+    

@@ -20,7 +20,14 @@
             <h2>Estadísticas</h2>
             <p>Estadísticas de los últimos 7 días. Gráfica
             </p>
-            <button class="btn btn-outline-secondary" type="button" href="/estadisticas">Ver más estadísticas</button>
+            <canvas baseChart class="chart"
+                    [data]="barChartData"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [type]="barChartType">
+            </canvas>
+
+            <button class="btn btn-secondary mt-5" type="button" (click)="cambioEstadisticas()">{{textoBotonEstadisticas}}</button>
           </div>
         </div>
       </div>

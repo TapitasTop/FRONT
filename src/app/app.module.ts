@@ -5,6 +5,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgChartsModule } from 'ng2-charts';
 
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +21,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchDegustPipe } from './search-degust.pipe';
 import { SearchLocalPipe } from './search-local.pipe';
+import { NuevaDegustacionComponent } from './pages/nuevaDegustacion/nuevaDegustacion.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { SearchLocalPipe } from './search-local.pipe';
     PerfilComponent,
     NavbarComponent,
     SearchDegustPipe,
-    SearchLocalPipe
+    SearchLocalPipe, 
+    NuevaDegustacionComponent
   ],
   imports: [
     BrowserModule, 
@@ -43,6 +46,7 @@ import { SearchLocalPipe } from './search-local.pipe';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    NgChartsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
