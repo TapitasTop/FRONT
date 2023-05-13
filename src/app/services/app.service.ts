@@ -86,9 +86,12 @@ export class AppService {
   getDegustacionesOrdenadas() {
     return this.http.get<any>(`${this.baseUrl}/v1/degustacion/listaDegustacionesOrdenadas`)
   }
-
+  //Devuelve una lista de las degustaciones ordenadas por fecha de un usuario
+  postDegustacionesUsuario(user: string) {
+    return this.http.post<any>(`${this.baseUrl}/v1/degustacion/listaDegustacionesUsuario`, { "token": user })
+  }
   //Devuelve una lista con todos los locales
-  getLocales(){
+  getLocales() {
     return this.http.get<any>(`${this.baseUrl}/v1/local/listaLocales`)
   }
 

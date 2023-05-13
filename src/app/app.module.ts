@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import {fas} from '@fortawesome/free-solid-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -20,6 +20,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchDegustPipe } from './search-degust.pipe';
 import { SearchLocalPipe } from './search-local.pipe';
+import { DegustacionesValoradasComponent } from './pages/degustaciones-valoradas/degustaciones-valoradas.component';
+import { MisDegustacionesComponent } from './pages/mis-degustaciones/mis-degustaciones.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +32,16 @@ import { SearchLocalPipe } from './search-local.pipe';
     HomeComponent,
     ImageUploadComponent,
     RegistroComponent,
+    DegustacionesValoradasComponent,
+    MisDegustacionesComponent,
     PerfilComponent,
     NavbarComponent,
     SearchDegustPipe,
     SearchLocalPipe
   ],
   imports: [
-    BrowserModule, 
-    HttpClientModule, 
+    BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     NgbModule,
     AppRoutingModule,

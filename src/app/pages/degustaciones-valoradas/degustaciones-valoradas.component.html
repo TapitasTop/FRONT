@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="loading" class="loading">
+  <h1>Loading...</h1>
+</div>
+
+<div *ngIf="!loading && !error && degustaciones && degustaciones.length">
+  <ng-container *ngFor="let degustacion of degustaciones">
+    <div class="degustacion">
+      <div class="deg h-100 p-3 bg-light border rounded-3 d-flex align-items-center">
+        <img src="data:image/jpg;base64,{{degustacion.foto}}" id="icon" alt="User Icon" style="width: 200px;"><br>
+        <div class="informacion-degustacion">
+          <h3>{{ degustacion.nombre }}</h3>
+          <p>{{ degustacion.descripcion }}</p>
+          <div class="datos-degustacion">
+            <div class="datos-columna">
+              <p><strong>Origen:</strong> {{ degustacion.origen }}</p>
+              <p><strong>Fecha de alta:</strong> {{ degustacion.fechaAlta }}</p>
+            </div>
+            <div class="datos-columna ">
+              <p><strong>Tipo de comida:</strong> {{ degustacion.tipoComida }}</p>
+              <p><strong>Calificador de gusto:</strong> {{ degustacion.calificadorGusto }}</p>
+            </div>
+          </div>
+          <p><strong>Valoración media:</strong> {{ degustacion.media }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div *ngIf="!loading && (error || (!degustaciones || !degustaciones.length))">
+  <p>{{ error ? 'Ha ocurrido un error al cargar las degustaciones.' : 'No hay degustaciones disponibles.' }}</p>
+</div>
