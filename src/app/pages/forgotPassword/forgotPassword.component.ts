@@ -20,6 +20,10 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  forgotPassword() {
+    this.router.navigate(["/login"]);
+  }
+
   submit() {
     const email = { email: this.email };
     this.procesando = true
