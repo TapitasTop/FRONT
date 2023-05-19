@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
   fotoDegustacion: string[] = new Array();
   nombreDegustacion: string[] = new Array();
   degustacionG: Degustacion[] = []
+  loading: boolean = true;
 
   ultimasEstadisticas = { labels: [0], datasets: [{ data: [0], label: '' }]};
   todasEstadisticas = { labels: [0], datasets: [{ data: [0], label: '' }]};
@@ -102,7 +103,7 @@ export class HomeComponent implements OnInit {
       (error: any) => {
         const sessionCookie = this.cookieService.get('Cookie');
         if (!sessionCookie) {
-          this.router.navigateByUrl("/login");
+          this.router.navigate(["/login"]);
         }
         console.log(error);
       }

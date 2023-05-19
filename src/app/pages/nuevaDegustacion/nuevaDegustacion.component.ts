@@ -86,7 +86,11 @@ export class NuevaDegustacionComponent implements OnInit {
         this.restaurantes = response
       },
       error: (error) => {
-        console.log(error)
+        const sessionCookie = this.cookieService.get('Cookie');
+        if (!sessionCookie) {
+          this.router.navigate(["/login"]);
+        }
+        console.log(error);
       }
 
     })

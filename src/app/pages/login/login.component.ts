@@ -12,18 +12,21 @@ import { CookieService } from 'ngx-cookie-service';
 export class LoginComponent implements OnInit {
   password: "";
   nombreUsuario: "";
+  loginError = false
 
   constructor(private httpService: AppService, private router: Router, private userService: AppService, private cookieService: CookieService) {}
   ngOnInit(): void {}
 
   login() {
     const user = { nombreUsuario: this.nombreUsuario, password: this.password };
+    this.loginError = false
     this.userService.login(user).subscribe(
       (data) => {
         this.cookieService.set('Cookie', data.token);
         this.router.navigateByUrl('/home');
       },
       (error: any) => {
+        this.loginError = true
         console.log(error);
       }
     );

@@ -14,3 +14,8 @@
     background-color: #78c5d6;
     color: #000;
 }
+
+.dropdown-menu {
+    max-height: 1000px;
+    overflow-y: scroll;
+}
