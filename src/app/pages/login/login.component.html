@@ -21,6 +21,15 @@
                 <input type="text" [(ngModel)]="nombreUsuario" id="nombreUsuario" class="fadeIn second" name="nombreUsuario" placeholder="Correo electrónico o Usuario" required="required">
                 <input type="password" [(ngModel)]="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" required="required"><br><br>
                 <input type="submit" (click)="login()" class="fadeIn fourth" value="Log In">
+
+                <div *ngIf="loginError" class="alert alert-danger alert-dismissible fade show"
+                    style="text-align: center;" role="alert">
+                    <p> El usuario o contraseña son incorrectos</p>
+                    <hr>
+                    <p class="mb-0">Por favor, revisa los campos</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
             </form>
     
             <!-- Remind Passowrd -->

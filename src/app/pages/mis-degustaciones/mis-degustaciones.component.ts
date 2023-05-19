@@ -27,6 +27,11 @@ export class MisDegustacionesComponent implements OnInit {
           this.loading = false;
         },
         (error) => {
+          const sessionCookie = this.cookieService.get('Cookie');
+          if (!sessionCookie) {
+            this.router.navigate(["/login"]);
+          }
+          console.log(error);
           this.error = error;
           this.loading = false;
         }

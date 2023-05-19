@@ -85,7 +85,7 @@ export class PerfilComponent implements OnInit {
       (error: any) => {
         const sessionCookie = this.cookieService.get('Cookie');
         if (!sessionCookie) {
-          this.router.navigateByUrl("/login");
+          this.router.navigate(["/login"]);
         }
         console.log(error);
       }
